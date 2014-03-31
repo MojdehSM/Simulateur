@@ -61,7 +61,7 @@ public class SimulatorService extends Service {
 
 				Log.e("HERE ", Text);
 				
-				WriteInFile(loc.getLatitude(),loc.getLongitude());
+				WriteInFile(loc);
 			}
 		};
 
@@ -76,10 +76,11 @@ public class SimulatorService extends Service {
 		return START_STICKY;
 	}
 
-	void WriteInFile(double latitude, double longitude) {
-		long time = Calendar.getInstance().getTimeInMillis();
-		String str = currentIdentifier +":"+time + ":" + latitude + ":" + longitude +"\n";
-
+	void WriteInFile(Location loc) {
+		String str = currentIdentifier +":"+loc.getTime() + ":" + loc.getLatitude() + ":" 
+		+ loc.getLongitude() +":" +loc.getBearing()+":"+loc.getSpeed()+":"+loc.getAccuracy()+
+				"\n";
+		
 		try {
 			FileOutputStream fOut = openFileOutput("location.csv",
 					Context.MODE_APPEND);
