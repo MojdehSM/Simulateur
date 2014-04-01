@@ -1,11 +1,10 @@
 package com.intactile;
 
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Calendar;
+import java.util.Random;
 
 import android.app.Service;
 import android.content.Context;
@@ -19,6 +18,8 @@ import android.util.Log;
 
 public class SimulatorService extends Service {
 
+	static long currentIdentifier = new Random().nextLong();
+	
 	@Override
 	public IBinder onBind(Intent intent) {
 		// TODO Auto-generated method stub
@@ -50,14 +51,17 @@ public class SimulatorService extends Service {
 
 			}
 
+			
 			@Override
 			public void onLocationChanged(Location loc) {
 
 				String Text = "My current location is: " + "Latitud = "
-						+ loc.getLatitude() + "Longitud = "
+						+ loc.getLatitude() + " Longitud = "
 						+ loc.getLongitude();
 
-				Log.i("HERE ", Text);
+				Log.e("HERE ", Text);
+				
+				WriteInFile(loc);
 			}
 		};
 
@@ -69,14 +73,14 @@ public class SimulatorService extends Service {
 					LocationManager.NETWORK_PROVIDER, 2000, 2, mlocListener);
 		}
 
-		return super.onStartCommand(intent, flags, startId);
-
+		return START_STICKY;
 	}
 
-	void WriteInFile(double latitude, double longitude) {
-		long time = Calendar.getInstance().getTimeInMillis();
-		String str = time + "\t" + latitude + "\t" + longitude;
-
+	void WriteInFile(Location loc) {
+		String str = currentIdentifier +":"+loc.getTime() + ":" + loc.getLatitude() + ":" 
+		+ loc.getLongitude() +":" +loc.getBearing()+":"+loc.getSpeed()+":"+loc.getAccuracy()+
+				"\n";
+		
 		try {
 			FileOutputStream fOut = openFileOutput("location.csv",
 					Context.MODE_APPEND);
