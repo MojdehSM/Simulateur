@@ -8,22 +8,13 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MaritimeActivity" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="94dp"
-        android:text="Merci Pour Votre Aide"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_above="@+id/button2"
+        android:layout_alignRight="@+id/textView1"
+        android:layout_marginBottom="41dp"
         android:text="Démmarer Le Service" />
 
     <Button
@@ -31,19 +22,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/button1"
+        android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/button1"
-        android:layout_below="@+id/button1"
-        android:layout_marginTop="36dp"
+        android:layout_marginBottom="96dp"
         android:text="Envoyer les données " />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/button2"
-        android:layout_marginBottom="36dp"
+        android:layout_above="@+id/button1"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_alignRight="@+id/button1"
+        android:layout_marginBottom="29dp"
         android:text="Créer un nouveau ID" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="41dp"
+        android:text="Merci Pour Votre Aide"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>

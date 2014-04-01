@@ -87,7 +87,6 @@ public class SimulatorService extends Service {
 			OutputStreamWriter osw = new OutputStreamWriter(fOut);
 
 			osw.write(str);
-
 			osw.flush();
 			osw.close();
 		} catch (IOException ioe) {

@@ -98,10 +98,7 @@ public class MaritimeActivity extends Activity implements OnClickListener {
 					Log.e("FILE", ctx.getName());
 				}
 
-				Toast.makeText(this, "Data Saved "+SimulatorService.currentIdentifier, Toast.LENGTH_LONG).show();
-				
-					
-				
+				Toast.makeText(this, "Data Saved "+SimulatorService.currentIdentifier, Toast.LENGTH_LONG).show();		
 				
 			} catch (IOException ex) {
 				Log.e("ERROR",ex.getMessage());
