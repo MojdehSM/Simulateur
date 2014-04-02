@@ -59,7 +59,7 @@ public class SimulatorService extends Service {
 						+ loc.getLatitude() + " Longitud = "
 						+ loc.getLongitude();
 
-				Log.e("HERE ", Text);
+				Log.e("Here", Text);
 				
 				WriteInFile(loc);
 			}
@@ -77,8 +77,8 @@ public class SimulatorService extends Service {
 	}
 
 	void WriteInFile(Location loc) {
-		String str = currentIdentifier +":"+loc.getTime() + ":" + loc.getLatitude() + ":" 
-		+ loc.getLongitude() +":" +loc.getBearing()+":"+loc.getSpeed()+":"+loc.getAccuracy()+
+		String str = "Id:"+ currentIdentifier +", Time:"+loc.getTime() + ", Latitude:" + loc.getLatitude() + ", Longitude:" 
+		+ loc.getLongitude() +", Altitude:"+loc.getAltitude()+", Bearing:" +loc.getBearing()+", Speed:"+loc.getSpeed()+", Accuracy:"+loc.getAccuracy()+
 				"\n";
 		
 		try {
